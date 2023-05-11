@@ -16,10 +16,6 @@ public class Main {
         shop.addItem(movie);
 
 
-        System.out.println(shop.getItemById(65));
-        System.out.println(shop.getCustomerById(12));
-
-
     }
 
 }
