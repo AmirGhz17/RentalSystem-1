@@ -5,7 +5,7 @@ public class Main {
 
         RentalStore shop=new RentalStore();
 
-         Customer person=new Customer("Amir","amir@gmail.com","09357901713","Babolsar",11);
+         Customer person=new Customer("Amir","amir@gmail.com","09350000000","Babolsar",11);
          shop.customers.add(person);
 
         Book book=new Book("Vampire Diaries","Horror & Fantasy",new Date(2009,1,1),22,"LJ Smith","Cengiz",10);
