@@ -110,7 +110,7 @@ public class RentalStore {
         }
     }
     
-public  void returnItem(Rental rental){
+    public  void returnItem(Rental rental){
 
 
         boolean x=true;
@@ -122,6 +122,7 @@ public  void returnItem(Rental rental){
                 rental.getCustomer().rentals.remove(rental.getCustomer().rentals.get(z));
                 System.out.println("Item returned successfully!!!");
                 rental.getItem().setAvailable(true);
+                rental.setReturnDate(new Date());
                 x=false;
             }
 
