@@ -2,8 +2,8 @@ import java.util.Date;
 
 public class Movie extends Item{
 
-    private final String director;
-    private final String cast;
+    private  String director;
+    private  String cast;
 
     public Movie(String title, String genre, Date releaseDate, int id,String director,String cast,int rentalfee) {
 
@@ -18,5 +18,13 @@ public class Movie extends Item{
 
     public String getDirector() {
         return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setCast(String cast) {
+        this.cast = cast;
     }
 }

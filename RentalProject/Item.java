@@ -2,21 +2,22 @@ import java.util.Date;
 
 public class Item {
 
-    private final int id;
-    private final String title;
-    private final String genre;
-    private final Date releaseDate;
+    private  int id;
+    private  String title;
+    private  String genre;
+    private  Date releaseDate;
     boolean isAvailable;
-    static int rentalfee;
+    private double rentalfee;
 
-    public Item(String title,String genre,Date releaseDate,int id , int rentalfee){
+
+    public Item(String title,String genre,Date releaseDate,int id , double rentalfee){
 
         this.title=title;
         this.genre=genre;
         this.releaseDate=releaseDate;
         this.isAvailable=true;
-        Item.rentalfee =rentalfee;
         this.id=id;
+        this.rentalfee=rentalfee;
 
     }
 
@@ -29,9 +30,6 @@ public class Item {
     public String getGenre() {
         return genre;
     }
-    public int getRentalfee() {
-        return rentalfee;
-    }
 
     public Date getReleaseDate() {
         return releaseDate;
@@ -41,6 +39,26 @@ public class Item {
     }
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setRentalfee(double rentalfee) {
+        this.rentalfee = rentalfee;
     }
 
     public String toString() {

@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 public class RentalStore {
 
@@ -84,20 +82,27 @@ public class RentalStore {
 
                 if (Objects.equals(item.getId(), items.get(k).getId()) && Objects.equals(customer.getId(),customers.get(t).getId()) && items.get(k).isAvailable()){
 
-                        String id = Integer.toString(item.getId());
-                        String id2 = Integer.toString(customer.getId());
-                        String id3 = id2 + id;
-                        int id4 = Integer.parseInt(id3);
+                    String id = Integer.toString(item.getId());
+                    String id2 = Integer.toString(customer.getId());
+                    String id3 = id2 + id;
+                    int id4 = Integer.parseInt(id3);
 
-                        Rental rental = new Rental(item, customer, id4);
-                        customer.rentals.add(rental);
-                        getAvailableItems.remove(item);
-                        System.out.println("Item rented successfully!!!");
-                        System.out.println("Item ID:" + rental.getId());
+                    Customer temp=new Customer(customer.getId());
+                    Rental rental = new Rental(item, temp, id4);
+                    try{
+                    customer.rentals.add(rental);}
+                    catch (NullPointerException e){
+                        ArrayList<Rental> rentals = new ArrayList<>();
+                        rentals.add(rental);
+                        customer.setRentals(rentals);
+                    }
+                    getAvailableItems.remove(item);
+                    System.out.println("Item rented successfully!!!");
+                    System.out.println("Item ID:" + rental.getId());
 
-                        items.get(k).setAvailable(false);
+                    items.get(k).setAvailable(false);
 
-                        x = false;
+                    x = false;
                 }
             }
 
@@ -109,7 +114,7 @@ public class RentalStore {
             System.out.println("=================================================|");
         }
     }
-    
+
     public  void returnItem(Rental rental){
 
 
@@ -133,8 +138,6 @@ public class RentalStore {
         }
     }
 
-
-
     public static int rand_id() {
 
         Random rand = new Random();
@@ -146,7 +149,6 @@ public class RentalStore {
     public ArrayList<Item> getAvailableItems() {
         return items;
     }
-
 
     public Customer getCustomerById(int id) {
 
@@ -185,7 +187,7 @@ public class RentalStore {
         }
         return  null;
     }
-    
+
     public int rental_id(Item item,Customer customer){
 
         String id = Integer.toString(item.getId());
@@ -193,5 +195,28 @@ public class RentalStore {
         String id3 = id2 + id;
         int id4 = Integer.parseInt(id3);
         return  id4;
+    }
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
+    public ArrayList<Item> getGetAvailableItems() {
+        return getAvailableItems;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setGetAvailableItems(ArrayList<Item> getAvailableItems) {
+        this.getAvailableItems = getAvailableItems;
+    }
+
+    public void setCustomers(ArrayList<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 }
